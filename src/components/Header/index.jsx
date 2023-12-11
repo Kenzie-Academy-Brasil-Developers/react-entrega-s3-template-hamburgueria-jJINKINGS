@@ -1,28 +1,19 @@
-import { useState } from "react";
 import Logo from "../../assets/Logo.svg";
-import { MdSearch, MdShoppingCart } from "react-icons/md";
+import { MdShoppingCart } from "react-icons/md";
+import style from "./style.module.scss";
 
-export const Header = () => {
-   const [value, setValue] = useState("");
+export const Header = ({ setIsOpen, amount }) => {
 
    return (
-      <header>
-         <img src={Logo} alt="Logo Kenzie Burguer" />
-         <div>
-            <button>
-                <MdShoppingCart size={21} />
-                <span>0</span>
-            </button>
-            <form>
-               <input
-                  type="text"
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-               />
-               <button type="submit">
-                 <MdSearch size={21} />
+      <header className={style.headerContainer}>
+         <div className={style.headerDiv}>
+            <img src={Logo} alt="Logo Kenzie Burguer" />
+            <div>
+               <button onClick={() => setIsOpen(true)}>
+                  <MdShoppingCart size={25} color={"var(--color-grey2)"} />
+                  <span className={style.status}>{amount}</span>
                </button>
-            </form>
+            </div>
          </div>
       </header>
    );
