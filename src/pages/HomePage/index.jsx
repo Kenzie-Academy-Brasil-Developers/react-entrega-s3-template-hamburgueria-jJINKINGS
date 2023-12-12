@@ -11,7 +11,7 @@ export const HomePage = () => {
   const localCartList = localStorage.getItem("@MYCARTBURGUER");
   const [cartList, setCartList] = useState(localCartList ? JSON.parse(localCartList) : []);
   const [loading, setLoading] = useState(false);
-  const [amount, setAmount] = useState(JSON.parse(localCartList).length);
+  const [amount, setAmount] = useState(JSON.parse(localCartList)? JSON.parse(localCartList).length : 0);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
